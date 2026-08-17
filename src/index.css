@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+/* Add this below your Tailwind directives */
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.98); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 25s linear infinite;
+}
+
+/* Optional: Pause the animation when hovered */
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* ================================
+   JOURNEY MAP (Leaflet) STYLING
+   ================================ */
+
+.leaflet-container {
+  font-family: inherit;
+  background: #F4F1EA;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px;
+}
+
+.leaflet-popup-tip-container {
+  overflow: visible;
+}
+
+.leaflet-popup-tip {
+  background: #fff;
+  border: 3px solid #000;
+  border-top: none;
+  border-left: none;
+  box-shadow: none;
+}
+
+.db-popup-label {
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.db-popup-journey-title {
+  display: block;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.db-popup-journey-blurb {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #444;
+  max-width: 220px;
+}
+
+.db-marker-outer {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.db-marker-dot {
+  width: 14px;
+  height: 14px;
+  background: #D32F2F;
+  border: 2px solid #000;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.db-marker-pulse {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(211, 47, 47, 0.45);
+  animation: db-pulse 1.8s ease-out infinite;
+  z-index: 1;
+}
+
+@keyframes db-pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Numbered journey stop badges */
+.db-numbered-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated dashed journey route line ("marching ants") */
+.db-journey-line {
+  animation: db-dash-flow 1.2s linear infinite;
+}
+
+@keyframes db-dash-flow {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+/* ================================
+   ILLUSTRATED PLANET MARKERS
+   (Namek, Yardrat, Supreme Kai's World)
+   ================================ */
+
+.db-planet-icon {
+  position: relative;
+  width: 46px;
+  height: 46px;
+}
+
+.db-planet-body {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--planet-fill);
+  border: 3px solid #000;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  overflow: hidden;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.db-planet-shade {
+  position: absolute;
+  top: -10%;
+  right: -15%;
+  width: 65%;
+  height: 120%;
+  background: var(--planet-shade);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.db-planet-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 15px;
+  border: 2px solid var(--planet-ring);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+  animation: db-ring-spin 14s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes db-ring-spin {
+  from { transform: translate(-50%, -50%) rotate(-20deg); }
+  to { transform: translate(-50%, -50%) rotate(340deg); }
+}
+
+.db-planet-number {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-weight: 900;
+  font-size: 13px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.db-planet-sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.85;
+  z-index: 0;
+}
+
+.db-planet-sparkle-1 {
+  top: 2px;
+  left: 2px;
+}
+
+.db-planet-sparkle-2 {
+  bottom: 4px;
+  right: 0px;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1) !important;
+}
+
+.leaflet-control-zoom a {
+  border-radius: 0 !important;
+  border: 2px solid #000 !important;
+  color: #000 !important;
+  font-weight: 900 !important;
+}
+
+.leaflet-control-zoom a:first-child {
+  border-bottom: none !important;
+}
